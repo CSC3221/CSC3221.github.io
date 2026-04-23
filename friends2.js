@@ -8,6 +8,10 @@ function clearTable() {
     tableBody.innerHTML = "";
 }
 
+function clearInfo(){
+    friendDetailsDiv = "";
+}
+
 function showMessage(message) {
     messageDiv.textContent = message;
 }
