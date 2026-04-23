@@ -14,9 +14,9 @@ function showMessage(message) {
 function addFriendRow(friend) {
     const row = document.createElement("tr");
 
-    row.innerHTML = `
-        <td>${friend.firstName} ${friend.lastName}</td>
-        `;
+    const fullName = `${friend.firstName} ${friend.lastName}`
+
+    row.innerHTML = `<td>${fullName}</td>`;
 
     tableBody.appendChild(row);
 }
