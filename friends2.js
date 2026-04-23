@@ -18,8 +18,11 @@ function addFriendRow(friend) {
 
     row.innerHTML = `
         <td>
-        <a href="#" onclick="showFriend(${friend.id}); return false";
-        ${fullName}</td>
+            <a href="https://api.com/friends/${friend.id}" 
+               onclick="showFriend(${friend.id}); return false;">
+                ${fullName}
+            </a>
+        </td>
         `;
 
     tableBody.appendChild(row);
@@ -52,7 +55,7 @@ async function loadAllFriends() {
 
 loadAllBtn.addEventListener("click", loadAllFriends);
 
-async function showFriend() {
+async function showFriend(id) {
     clearTable();
     showMessage(`Loading friend ${id}...`);
 
