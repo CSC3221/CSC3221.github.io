@@ -2,6 +2,7 @@ const API_URL = "https://friends-node-01-47e26a48b0b0.herokuapp.com/friends";
 const loadAllBtn = document.getElementById("loadAllBtn");
 const tableBody = document.querySelector("#friendsTable tbody");
 const messageDiv = document.getElementById("message");
+const friendDetailsDiv = document.getElementById("friendDetails");
 
 function clearTable() {
     tableBody.innerHTML = "";
@@ -55,8 +56,19 @@ async function loadAllFriends() {
 
 loadAllBtn.addEventListener("click", loadAllFriends);
 
+function showFriendDetails(friend){
+    friendDetailsDiv.innerHTML = `
+        <div class="card p-3">
+            <h4>${friend.firstName} ${friend.lastName}</h4>
+            <p><strong>ID:</strong> ${friend.id}</p>
+            <p><strong>First Name:</strong> ${friend.firstName}</p>
+            <p><strong>Last Name:</strong> ${friend.lastName}</p>
+            <p><strong>Phone:</strong> ${friend.phone}</p>
+        </div>
+    `;
+}
+
 async function showFriend(id) {
-    clearTable();
     showMessage(`Loading friend ${id}...`);
 
     try {
