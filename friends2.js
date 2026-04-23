@@ -80,7 +80,7 @@ async function showFriend(id) {
 
         const friend = await response.json();
 
-        addFriendRow(friend);
+        showFriendDetails(friend);
 
         showMessage(`Showing friend ${friend.firstName} ${friend.lastName}`);
     } catch (error){
