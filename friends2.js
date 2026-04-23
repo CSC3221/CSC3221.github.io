@@ -4,12 +4,13 @@ const tableBody = document.querySelector("#friendsTable tbody");
 const messageDiv = document.getElementById("message");
 const friendDetailsDiv = document.getElementById("friendDetails");
 
-function clearTable() {
-    tableBody.innerHTML = "";
-}
-
 function clearInfo(){
     friendDetailsDiv = "";
+}
+
+function clearTable() {
+    tableBody.innerHTML = "";
+    clearInfo();
 }
 
 function showMessage(message) {
