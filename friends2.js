@@ -5,7 +5,7 @@ const messageDiv = document.getElementById("message");
 const friendDetailsDiv = document.getElementById("friendDetails");
 
 function clearInfo(){
-    friendDetailsDiv = "";
+    friendDetailsDiv.innerHTML = "";
 }
 
 function clearTable() {
