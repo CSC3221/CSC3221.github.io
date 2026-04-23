@@ -16,7 +16,11 @@ function addFriendRow(friend) {
 
     const fullName = `${friend.firstName} ${friend.lastName}`
 
-    row.innerHTML = `<td>${fullName}</td>`;
+    row.innerHTML = `
+        <td>
+        <a href="#" onclick="showFriend(${friend.id}); return false";
+        ${fullName}</td>
+        `;
 
     tableBody.appendChild(row);
 }
@@ -47,3 +51,24 @@ async function loadAllFriends() {
 }
 
 loadAllBtn.addEventListener("click", loadAllFriends);
+
+async function showFriend() {
+    clearTable();
+    showMessage(`Loading friend ${id}...`);
+
+    try {
+        const response = await fetch(`${API_URL}/${id}`);
+
+        if (!response.ok){
+            throw new Error(`HTTP error ${response.status}`);
+        }
+
+        const friend = await response.json();
+
+        addFriendRow(friend);
+
+        showMessage(`Showing friend ${friend.firstName} ${friend.lastName}`);
+    } catch (error){
+        showMessage(`Error loading friend: ${error.message}`);
+    }
+}
