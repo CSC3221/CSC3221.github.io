@@ -163,20 +163,26 @@
         </ul>
     </div>
     <header data-bs-theme="dark">
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <nav class="navbar navbar-dark fixed-top bg-dark">
             <div class="container-fluid">
                 <div>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-                        aria-controls="navbarCollapse" aria-expanded="false" aria-lable="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                </div>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link fs-2" aria-current="page" href="portfolio.html">Portfolio</a> </li>
-                        <li class="nav-item"><a class="nav-link fs-2" href="resume.html">Resume</a> </li>
-                        <li class="nav-item"><a class="nav-link fs-2" href="game.html">Game</a> </li>
-                    </ul>
+                    <div class="collapse-fluid navbar-collapse" id="navbarCollapse">
+                        <ul class="navbar-nav ms-auto d-flex flex-row"></ul>">
+                            <li class="nav-item px-md-3"><a class="nav-link fs-2" aria-current="page" href="portfolio.html">Portfolio</a> </li>
+                            <li class="nav-item px-md-3"><a class="nav-link fs-2" href="resume.html">Resume</a> </li>
+                        </ul>
+                    </div>
+                    <div class="dropdown">
+                        <button class="btn btn-dark" type="button" data-bs-toggle="dropdown">
+                            <i class="bi bi-list"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="resume.html">Resume</a></li>
+                            <li><a class="dropdown-item" href="portfolio.css">Portfolio</a></li>
+                            <li><a class="dropdown-item" href="game.html">Game</a></li>
+                            <li><a class="dropdown-item" href="friends1.html">Friends 1</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </nav>
