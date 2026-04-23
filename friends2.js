@@ -19,7 +19,7 @@ function addFriendRow(friend) {
 
     row.innerHTML = `
         <td>
-            <a href="https://api.com/friends/${friend.id}" 
+            <a href="#" 
                onclick="showFriend(${friend.id}); return false;">
                 ${fullName}
             </a>
