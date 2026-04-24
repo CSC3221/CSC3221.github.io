@@ -16,6 +16,7 @@ const scoreDiv = document.getElementById("score");
 let currentColor = "";
 let attempt = 3;
 let score = 0;
+let gameOver = false;
 
 function showMessage(message){
     messageDiv.textContent = message;
@@ -32,7 +33,16 @@ function getRandomColor(){
 }
 
 attemptBtn.addEventListener("click", function(){
+    if (gameOver) {
+        showMessage("Game Over! Final score: " + score);
+        return;
+    }
+
     const guess = prompt("Guess the color: ")
+
+    if(!guess){
+        return;
+    }
 
     if (guess.toLowerCase() === currentColor.toLowerCase()) {
         showMessage("Correct");
@@ -48,6 +58,7 @@ attemptBtn.addEventListener("click", function(){
         showMessage(("Wrong! Attempts remaining: " + attempt));
 
         if(attempt === 0){
+            gameOver = true;
             showMessage("Game Over! Final score: " + score);
         }
     }
