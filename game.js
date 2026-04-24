@@ -30,3 +30,5 @@ function attempt(){
 
     }
 }
+
+getRandomColor();
