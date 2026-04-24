@@ -10,8 +10,8 @@ const htmlColors = [
 
 const attempt = document.getElementById("attemptBtn");
 const correctColor = document.getElementById("correctColor");
-const messageDiv = document.getElementById("message");
-const score = document.getElementById("score");
+//const messageDiv = document.getElementById("message");
+//const score = document.getElementById("score");
 
 function showMessage(message){
     messageDiv.textContent = message;
