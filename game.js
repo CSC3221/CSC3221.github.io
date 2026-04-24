@@ -1,22 +1,25 @@
 const htmlColors = [
-    "Black", "Blue", "BlueViolet",
-    "Brown", "Gold", "Gray",
-    "Green", "Lime", "Magenta",
-    "Orange", "Pink", "Purple",
-    "Red", "SeaGreen", "SeaShell",
-    "SkyBlue", "Teal", "Turquoise",
-    "Violet", "White", "Yellow"
+    "Black", "Blue",
+    "Brown", "Gold",
+    "Gray", "Green",
+    "Lime", "Magenta",
+    "Orange", "Pink",
+    "Purple", "Red",
+    "SkyBlue", "Teal",
+    "Violet", "White",
+    "Yellow"
 ];
 
 const attemptBtn = document.getElementById("attemptBtn");
 const correctColorDiv = document.getElementById("correctColor");
 const messageDiv = document.getElementById("message");
 const scoreDiv = document.getElementById("score");
+const endBtn = document.getElementById("endBtn");
 
 let currentColor = "";
 let attempt = 3;
 let score = 0;
-let gameOver = false;
+let gameOver = true;
 
 function showMessage(message){
     messageDiv.textContent = message;
@@ -25,7 +28,6 @@ function showMessage(message){
 function showScore(score){
     scoreDiv.textContent = "Score: " + score;
 }
-
 
 function getRandomColor(){
     currentColor = htmlColors[Math.floor(Math.random() * htmlColors.length)];
@@ -56,6 +58,7 @@ attemptBtn.addEventListener("click", function(){
     } else {
         attempt--;
         showMessage(("Wrong! Attempts remaining: " + attempt));
+        getRandomColor();
 
         if(attempt === 0){
             gameOver = true;
@@ -64,6 +67,16 @@ attemptBtn.addEventListener("click", function(){
     }
 
     showScore(score);
+})
+
+endBtn.addEventListener("click", function(){
+    gameOver = true;
+    showMessage("Game Over! Final score: " + score);
+})
+
+startBtn.addEventListener("click", function(){
+    gameOver = false;
+    showMessage("GameStarted!")
 })
 
 getRandomColor();
