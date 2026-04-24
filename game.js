@@ -14,19 +14,21 @@ const messageDiv = document.getElementById("message");
 const scoreDiv = document.getElementById("score");
 
 let currentColor = "";
+let attempt = 3;
+let score = 0;
 
 function showMessage(message){
     messageDiv.textContent = message;
 }
 
 function showScore(score){
-    scoreDiv.textContent = score;
+    scoreDiv.textContent = "Score: " + score;
 }
 
 
 function getRandomColor(){
-    correctColor.style.backgroundColor = htmlColors[Math.floor(Math.random() * htmlColors.length)];
-    correctColorDiv.style.backgroundColor = correctColor;
+    currentColor.style.backgroundColor = htmlColors[Math.floor(Math.random() * htmlColors.length)];
+    correctColorDiv.style.backgroundColor = currentColor;
 }
 
 attemptBtn.addEventListener("click", function(){
@@ -36,25 +38,21 @@ attemptBtn.addEventListener("click", function(){
 
     if ((guess && guess.toLowerCase() === currentColor.toLowerCase()) && attempt === 3) {
         showMessage("Correct");
-        score += 100;
-        showScore(score);
-    } else if ((guess && guess.toLowerCase() === currentColor.toLowerCase()) && attempt === 2) {
-        showMessage("Correct");
-        score += 50;
-        showScore(score);
-    } else if ((guess && guess.toLowerCase() === currentColor.toLowerCase()) && attempt === 1) {
-        showMessage("Correct");
-        score += 10;
-        showScore(score);
+        
+        if(attempt === 3) score += 100;
+        else if (attempt === 2) score += 50;
+        else score += 10;
     } else {
-        showMessage("Wrong! It was " + currentColor);
-        attempt -= 1;
+        attempt--;
+        showMessage(("Wrong! Attempts remaining: " + attempt));
+
+        if(attempt === 0){
+            showMessage("Game Over! Final score: " + score);
+        }
     }
 
-    if (attempt === 0){
-        showMessage("Game Over");
-        return showScore(score);
-    }
+    showScore();
 })
 
 getRandomColor();
+showScore();
