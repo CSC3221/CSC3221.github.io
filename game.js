@@ -27,14 +27,12 @@ function showScore(score){
 
 
 function getRandomColor(){
-    currentColor.style.backgroundColor = htmlColors[Math.floor(Math.random() * htmlColors.length)];
+    currentColor = htmlColors[Math.floor(Math.random() * htmlColors.length)];
     correctColorDiv.style.backgroundColor = currentColor;
 }
 
 attemptBtn.addEventListener("click", function(){
     const guess = prompt("Guess the color: ")
-    let attempt = 3;
-    let score = 0;
 
     if ((guess && guess.toLowerCase() === currentColor.toLowerCase()) && attempt === 3) {
         showMessage("Correct");
@@ -54,8 +52,8 @@ attemptBtn.addEventListener("click", function(){
         }
     }
 
-    showScore();
+    showScore(score);
 })
 
 getRandomColor();
-showScore();
+showScore(score);
