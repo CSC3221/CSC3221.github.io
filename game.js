@@ -34,7 +34,7 @@ function getRandomColor(){
 attemptBtn.addEventListener("click", function(){
     const guess = prompt("Guess the color: ")
 
-    if ((guess && guess.toLowerCase() === currentColor.toLowerCase()) && attempt === 3) {
+    if (guess.toLowerCase() === currentColor.toLowerCase()) {
         showMessage("Correct");
         
         if(attempt === 3) score += 100;
