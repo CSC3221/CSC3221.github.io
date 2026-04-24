@@ -84,6 +84,7 @@ attemptBtn.addEventListener("click", function(){
 
 endBtn.addEventListener("click", function () {
     gameOver = true;
+    attempt = 3;
 
     showMessage("Game Over! Final score: " + score);
     
