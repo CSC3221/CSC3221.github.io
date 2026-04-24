@@ -42,6 +42,9 @@ attemptBtn.addEventListener("click", function(){
         if(attempt === 3) score += 100;
         else if (attempt === 2) score += 50;
         else score += 10;
+
+        attempt = 3;
+        getRandomColor();
     } else {
         attempt--;
         showMessage(("Wrong! Attempts remaining: " + attempt));
