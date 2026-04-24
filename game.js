@@ -15,11 +15,24 @@ const correctColorDiv = document.getElementById("correctColor");
 const messageDiv = document.getElementById("message");
 const scoreDiv = document.getElementById("score");
 const endBtn = document.getElementById("endBtn");
+const startBtn = document.getElementById("startBtn");
 
 let currentColor = "";
 let attempt = 3;
 let score = 0;
 let gameOver = true;
+
+function showGameButtons() {
+    attemptBtn.classList.remove("d-none");
+    endBtn.classList.remove("d-none");
+    startBtn.classList.add("d-none");
+}
+
+function hideGameButtons() {
+    attemptBtn.classList.add("d-none");
+    endBtn.classList.add("d-none");
+    startBtn.classList.remove("d-none");
+}
 
 function showMessage(message){
     messageDiv.textContent = message;
@@ -69,15 +82,25 @@ attemptBtn.addEventListener("click", function(){
     showScore(score);
 })
 
-endBtn.addEventListener("click", function(){
+endBtn.addEventListener("click", function () {
     gameOver = true;
+
     showMessage("Game Over! Final score: " + score);
-})
+    
+    hideGameButtons();
+});
 
-startBtn.addEventListener("click", function(){
+startBtn.addEventListener("click", function () {
     gameOver = false;
-    showMessage("GameStarted!")
-})
+    attempt = 3;
+    score = 0;
 
-getRandomColor();
-showScore(score);
+    showMessage("Game Started!");
+    showScore(score);
+    getRandomColor();
+
+    showGameButtons();
+});
+
+hideGameButtons();
+gameOver = true;
